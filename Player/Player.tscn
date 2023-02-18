@@ -106,7 +106,7 @@ shape = SubResource("CircleShape2D_vssll")
 material = SubResource("ShaderMaterial_dvn1o")
 sprite_frames = SubResource("SpriteFrames_382hk")
 animation = &"idle"
-frame_progress = 0.812408
+frame_progress = 0.516882
 
 [node name="WaterParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3.5)
