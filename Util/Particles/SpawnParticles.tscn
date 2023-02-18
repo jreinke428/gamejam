@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://baof5pdo6g1lk"]
+
+[sub_resource type="Gradient" id="Gradient_rtpd4"]
+offsets = PackedFloat32Array(0.0078125, 1)
+colors = PackedColorArray(0.443137, 0.239216, 0.164706, 1, 0.294118, 0.152941, 0.0980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tbqvi"]
+gradient = SubResource("Gradient_rtpd4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ibeu4"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+damping_min = 10.0
+damping_max = 12.0
+scale_min = 1.5
+scale_max = 1.5
+color_initial_ramp = SubResource("GradientTexture1D_tbqvi")
+
+[node name="SpawnParticles" type="GPUParticles2D"]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_ibeu4")
+lifetime = 2.0
+one_shot = true

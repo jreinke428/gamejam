@@ -92,7 +92,7 @@ func generateTerrain(screenSize: Vector2i = GlobalProperties.SCREEN_SIZE):
 		for surfaceTile in Biomes[biome].surfaceTiles:
 			set_cells_terrain_connect(Biomes[biome].layer, Biomes[biome].area, TerrainTiles[surfaceTile].terrainSet, TerrainTiles[surfaceTile].terrain, false)
 			
-	#FlowField.initializeAndGenerateFields()
+	FlowField.initializeFields()
 	
 ## This function may not work if you try and place down two different tiles within the biome
 func placeBiomePlaceholderSurfaceTile(biome: String, worldPosition: Vector2i):

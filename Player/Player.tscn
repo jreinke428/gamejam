@@ -8,10 +8,29 @@
 [ext_resource type="Script" path="res://Player/guns/Gun.gd" id="6_a10k5"]
 [ext_resource type="PackedScene" uid="uid://wbrlrmyqne8d" path="res://Player/guns/Bullet.tscn" id="7_iijov"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fxyd6"]
+
+[sub_resource type="Gradient" id="Gradient_bh8vb"]
+colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w5nx8"]
+gradient = SubResource("Gradient_bh8vb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5muu"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(4, 0.2, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+damping_min = 0.2
+damping_max = 0.5
+scale_min = 0.8
+color_initial_ramp = SubResource("GradientTexture1D_w5nx8")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vssll"]
 radius = 3.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvn1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uxosq"]
 atlas = ExtResource("2_skyqt")
@@ -172,16 +191,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_gvgni"]
+[sub_resource type="Gradient" id="Gradient_f3bwt"]
 colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_wywpi"]
-gradient = SubResource("Gradient_gvgni")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mcb8p"]
+gradient = SubResource("Gradient_f3bwt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti5mo"]
 lifetime_randomness = 0.5
 emission_shape = 3
-emission_box_extents = Vector3(5, 0.5, 0)
+emission_box_extents = Vector3(4, 0.5, 0)
 spread = 10.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = -2.0
@@ -189,46 +208,37 @@ initial_velocity_max = 2.0
 damping_min = 0.2
 damping_max = 0.5
 scale_max = 1.3
-color_initial_ramp = SubResource("GradientTexture1D_wywpi")
+color_initial_ramp = SubResource("GradientTexture1D_mcb8p")
 
-[sub_resource type="Gradient" id="Gradient_bh8vb"]
-colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w5nx8"]
-gradient = SubResource("Gradient_bh8vb")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5muu"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(4, 0.2, 0)
-spread = 10.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = -2.0
-initial_velocity_max = 2.0
-damping_min = 0.2
-damping_max = 0.5
-scale_min = 0.8
-color_initial_ramp = SubResource("GradientTexture1D_w5nx8")
-
-[node name="Node2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_fxyd6")
 script = ExtResource("1")
+
+[node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 2)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_t5muu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vssll")
 
 [node name="BodyAnimation" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_dvn1o")
+use_parent_material = true
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_382hk")
 animation = &"idle"
 speed_scale = 2.0
 
 [node name="ArmAnimation" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_6dg2j")
 animation = &"idle"
 speed_scale = 2.0
 
 [node name="WaterParticles" type="GPUParticles2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 2)
 emitting = false
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_ti5mo")

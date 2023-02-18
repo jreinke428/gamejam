@@ -41,21 +41,25 @@ offset_bottom = 40.0
 texture = ExtResource("3_ymm3e")
 
 [node name="Planet2" type="TextureRect" parent="Planets"]
+layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("4_8eu73")
 
 [node name="Planet3" type="TextureRect" parent="Planets"]
+layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("5_0iyt5")
 
 [node name="Planet4" type="TextureRect" parent="Planets"]
+layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("6_x0ku6")
 
 [node name="Planet5" type="TextureRect" parent="Planets"]
+layout_mode = 0
 offset_left = -40.0
 offset_bottom = 40.0
 texture = ExtResource("7_pptvg")
