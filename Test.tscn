@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ifoj01gsswjb"]
+
+[ext_resource type="Texture2D" uid="uid://k0pil54qm06n" path="res://grass-tile.png" id="1_5u0r7"]
+[ext_resource type="PackedScene" uid="uid://puhruq0pjphi" path="res://Player/Player.tscn" id="2_5wnah"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5u0r7")
+
+[node name="Node2D" parent="." instance=ExtResource("2_5wnah")]
+position = Vector2(15, 11)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+position = Vector2(-15, -11)
+limit_left = 0
+limit_top = 0
