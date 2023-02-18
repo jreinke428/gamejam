@@ -8,10 +8,10 @@
 
 [node name="World" parent="." instance=ExtResource("1_2ir4f")]
 
-[node name="Node2D" parent="World" instance=ExtResource("2_5wnah")]
+[node name="Player" parent="World" instance=ExtResource("2_5wnah")]
 position = Vector2(196, 119)
 
-[node name="Camera2D" type="Camera2D" parent="World/Node2D"]
+[node name="Camera2D" type="Camera2D" parent="World/Player"]
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
