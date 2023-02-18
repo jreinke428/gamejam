@@ -5,12 +5,10 @@ var acceleration = 0.1
 var friction = 0.4
 var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 
-@onready var animatedSprite = $AnimatedSprite2D
+@onready var bodyAnimations = $BodyAnimation
+@onready var armAnimations = $ArmAnimation
 @onready var waterParticles = $WaterParticles
 @onready var waterTrailingParticles = $WaterTrailingParticles
-
-func _ready():
-	animatedSprite.play('idle')
 
 func _process(_delta):
 	z_index = global_position.y as int
@@ -37,7 +35,7 @@ func movement():
 	
 func animationManager():
 	if GlobalGameTools.isInWater(global_position):
-		animatedSprite.material.shader = waterShader
+		bodyAnimations.material.shader = waterShader
 		waterParticles.visible = true
 		if abs(velocity.x) < 10 and abs(velocity.y) < 10:
 			waterParticles.emitting = false
@@ -46,9 +44,18 @@ func animationManager():
 			waterParticles.emitting = true
 			waterTrailingParticles.emitting = true
 	else:
-		animatedSprite.material.shader = null
+		bodyAnimations.material.shader = null
 		waterParticles.emitting = false
 		waterTrailingParticles.emitting = false
 		waterParticles.visible = false
-	if velocity.x != 0:
-		animatedSprite.scale.x=sign(velocity.x)
+		
+	if abs(velocity.x) < 10 and abs(velocity.y) < 10:
+		bodyAnimations.play("idle")
+		armAnimations.play("idle")
+	else:
+		bodyAnimations.play("walking")
+		armAnimations.play("walking")
+		if velocity.x != 0:
+			bodyAnimations.scale.x=sign(velocity.x)
+			armAnimations.scale.x=sign(velocity.x)
+		

@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ifoj01gsswjb"]
+[gd_scene load_steps=4 format=3 uid="uid://t0dvn3sro3gg"]
 
-[ext_resource type="Texture2D" uid="uid://k0pil54qm06n" path="res://grass-tile.png" id="1_5u0r7"]
+[ext_resource type="PackedScene" uid="uid://dn4wef8waj42" path="res://World/World.tscn" id="1_2ir4f"]
 [ext_resource type="PackedScene" uid="uid://puhruq0pjphi" path="res://Player/Player.tscn" id="2_5wnah"]
+[ext_resource type="Script" path="res://Util/Camera.gd" id="3_xyjgm"]
 
 [node name="Test" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5u0r7")
+[node name="World" parent="." instance=ExtResource("1_2ir4f")]
 
-[node name="Node2D" parent="." instance=ExtResource("2_5wnah")]
-position = Vector2(15, 11)
+[node name="Node2D" parent="World" instance=ExtResource("2_5wnah")]
+position = Vector2(196, 119)
 
-[node name="Camera2D" type="Camera2D" parent="Node2D"]
-position = Vector2(-15, -11)
+[node name="Camera2D" type="Camera2D" parent="World/Node2D"]
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
@@ -22,3 +21,4 @@ drag_left_margin = 0.05
 drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
+script = ExtResource("3_xyjgm")
