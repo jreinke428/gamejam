@@ -373,6 +373,7 @@ sources/1 = SubResource("TileSetAtlasSource_0tx72")
 sources/2 = SubResource("TileSetAtlasSource_5cud3")
 
 [node name="World" type="TileMap"]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_pej3d")
 format = 2
 layer_0/name = "grass"

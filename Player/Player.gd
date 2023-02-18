@@ -35,7 +35,7 @@ func movement():
 	
 func animationManager():
 	if GlobalGameTools.isInWater(global_position):
-		bodyAnimations.material.shader = waterShader
+		material.shader = waterShader
 		waterParticles.visible = true
 		if abs(velocity.x) < 10 and abs(velocity.y) < 10:
 			waterParticles.emitting = false
@@ -44,7 +44,7 @@ func animationManager():
 			waterParticles.emitting = true
 			waterTrailingParticles.emitting = true
 	else:
-		bodyAnimations.material.shader = null
+		material.shader = null
 		waterParticles.emitting = false
 		waterTrailingParticles.emitting = false
 		waterParticles.visible = false
