@@ -35,7 +35,7 @@ func toggleVisibility(item: CanvasItem):
 		item.hide()
 	else:
 		item.show()
-
+	
 func isValidSpawn(pos):
 	if isInWater(pos): return false
 	if pos.x < 0 or pos.x/16 > GlobalProperties.SCREEN_SIZE.x: return false
@@ -47,7 +47,6 @@ func spawnEnemies():
 		var dist = randf_range(100,150)
 		var angle = randf_range(0,360)
 		var coords = Vector2(cos(angle)*dist, sin(angle)*dist)
-		print(coords)
 		while(!isValidSpawn(scanPos+coords)):
 			dist = randf_range(100,150)
 			angle = randf_range(0,360)
