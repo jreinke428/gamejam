@@ -14,6 +14,8 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 @onready var gun = $Gun
 @onready var world = $'../'
 
+var health: int = 50
+
 func _process(_delta):
 	animationManager()
 	gunManager()
@@ -94,4 +96,11 @@ func animationManager():
 		if velocity.x != 0:
 			bodyAnimations.scale.x = sign(velocity.x)
 			armAnimations.scale.x = sign(velocity.x)
+			
+func hit(damage):
+	print("Ouch " + str(damage))
+	health -= damage
+	#modulate = '#ff9e9e'
+	#hitTimer.start()
+	if health <= 0: print("I am dead")
 		
