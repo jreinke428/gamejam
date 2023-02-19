@@ -3,8 +3,8 @@ extends CharacterBody2D
 var speed = 100
 var acceleration = 0.1
 var friction = 0.4
-var selected_gun = 0
 var aimingGun = false
+var canStartScan = false
 var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 
 @onready var bodyAnimations = $BodyAnimation
@@ -22,9 +22,6 @@ func _physics_process(_delta):
 	movement()
 	
 func gunManager():
-	if Input.is_action_pressed("guns_one"):
-		selected_gun = 1
-		
 	if Input.is_action_pressed("left_click"):
 		shootGun()
 	if Input.is_action_just_released("left_click"):

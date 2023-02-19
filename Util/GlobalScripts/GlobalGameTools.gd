@@ -3,17 +3,10 @@ extends Node
 @onready var surfaceMap : TileMap = $"/root/Test/World"
 @onready var player : CharacterBody2D = $'/root/Test/World/Player'
 
-var spawningEnemies = false
+var scanInProgress = false
 var scanPos = null
 var curEnemy = preload('res://Enemies/Enemy1/Enemy1.tscn')
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
-
-func _process(delta):
-	if (Input.is_action_just_released("ui_text_backspace")): 
-		spawningEnemies = !spawningEnemies
-		scanPos = player.global_position
-		FlowField.setTarget(player.global_position)
-	if (spawningEnemies): spawnEnemies()
 
 func isInWater(pos):
 	var mapPos = surfaceMap.local_to_map(pos)

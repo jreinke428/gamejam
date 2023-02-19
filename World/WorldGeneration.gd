@@ -25,7 +25,7 @@ var Biomes = {
 		'maxAltitude': 1.0,
 		'layer': 0,
 		'surfaceTiles': {'grass': 100.0},
-		'objectTiles' : {},
+		'objectTiles' : {"plant1": 0.0, "plant2": 0.0, "plant3": 1.0, "tree": 3.0},
 		'area': []
 	}
 }
@@ -50,7 +50,13 @@ var TerrainColors = [
 ]
 
 #'tree': {'layer': 0, 'sourceId': 0, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
-var ObjectTiles = {}
+var ObjectTiles = {
+	"plant1": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 2},
+	"plant2": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 3},
+	"plant3": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 4},
+	"tree": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1}
+	
+}
 
 func _ready():
 	chooseTerrainColor()
@@ -81,10 +87,11 @@ func generateTerrain(screenSize: Vector2i = GlobalProperties.SCREEN_SIZE):
 				placeBiomePlaceholderSurfaceTile('water', worldPosition)
 				placeBiomeObject('water', worldPosition)
 				Biomes.water.area.append(worldPosition)
+			else:
+				placeBiomeObject('forest', worldPosition)
 			
 			# Grass is placed at every location
 			placeBiomePlaceholderSurfaceTile('forest', worldPosition)
-			placeBiomeObject('forest', worldPosition)
 			Biomes.forest.area.append(worldPosition)
 	
 	# Fill all placeholder tiles with the correct terrain
