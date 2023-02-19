@@ -210,7 +210,7 @@ damping_max = 0.5
 scale_max = 1.3
 color_initial_ramp = SubResource("GradientTexture1D_mcb8p")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 material = SubResource("ShaderMaterial_fxyd6")
 script = ExtResource("1")
 
@@ -251,6 +251,7 @@ amount = 16
 process_material = SubResource("ParticleProcessMaterial_t5muu")
 
 [node name="Gun" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("5_834ub")
 offset = Vector2(0, -4)
 script = ExtResource("6_a10k5")
