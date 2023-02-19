@@ -1,13 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn4wef8waj42"]
+[gd_scene load_steps=23 format=3 uid="uid://dn4wef8waj42"]
 
 [ext_resource type="Texture2D" uid="uid://bp3bjm1at6i8l" path="res://World/placeholder-tiles.png" id="1_vi7fc"]
 [ext_resource type="Script" path="res://World/WorldGeneration.gd" id="1_xjcd8"]
 [ext_resource type="Texture2D" uid="uid://k0pil54qm06n" path="res://World/grass-tile.png" id="2_xlu7d"]
 [ext_resource type="Texture2D" uid="uid://dn4jc08f0ah8l" path="res://World/water-tiles.png" id="3_xno42"]
+[ext_resource type="Texture2D" uid="uid://c15fd4h1hydtd" path="res://World/Fauna/rock1.png" id="4_wlpsq"]
+[ext_resource type="Texture2D" uid="uid://ddb0gbx0dc5ge" path="res://World/Fauna/rock2.png" id="5_6101j"]
 [ext_resource type="PackedScene" uid="uid://cjgyhjapyvbi7" path="res://World/Fauna/Plant1.tscn" id="5_br7oa"]
+[ext_resource type="Texture2D" uid="uid://dy5btqth5ggaw" path="res://World/Fauna/worms.png" id="6_05eqp"]
 [ext_resource type="PackedScene" uid="uid://1iv2u3acriwa" path="res://World/Fauna/Plant2.tscn" id="6_d576b"]
 [ext_resource type="PackedScene" uid="uid://ddt7lbeui3p4k" path="res://World/Fauna/Tree.tscn" id="7_46331"]
 [ext_resource type="PackedScene" uid="uid://bub4n2virsnoe" path="res://World/Fauna/Plant3.tscn" id="7_jno7f"]
+[ext_resource type="Texture2D" uid="uid://cfcd5wperp516" path="res://World/Fauna/glamujobe.png" id="7_p8ex0"]
 [ext_resource type="PackedScene" uid="uid://bk05knbf7s53g" path="res://Player/Scanner/Scanner.tscn" id="8_byo1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pvi0"]
@@ -367,6 +371,22 @@ texture = ExtResource("3_xno42")
 8:4/0/terrains_peering_bit/left_side = 0
 8:4/0/terrains_peering_bit/top_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1klx"]
+texture = ExtResource("4_wlpsq")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq2y0"]
+texture = ExtResource("5_6101j")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1cm7n"]
+texture = ExtResource("6_05eqp")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dkb2t"]
+texture = ExtResource("7_p8ex0")
+0:0/0 = 0
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_e7krx"]
 scenes/1/scene = ExtResource("7_46331")
 scenes/2/scene = ExtResource("5_br7oa")
@@ -384,6 +404,10 @@ sources/0 = SubResource("TileSetAtlasSource_8pvi0")
 sources/1 = SubResource("TileSetAtlasSource_0tx72")
 sources/2 = SubResource("TileSetAtlasSource_5cud3")
 sources/7 = SubResource("TileSetScenesCollectionSource_e7krx")
+sources/3 = SubResource("TileSetAtlasSource_u1klx")
+sources/4 = SubResource("TileSetAtlasSource_tq2y0")
+sources/5 = SubResource("TileSetAtlasSource_1cm7n")
+sources/6 = SubResource("TileSetAtlasSource_dkb2t")
 
 [node name="World" type="TileMap"]
 y_sort_enabled = true

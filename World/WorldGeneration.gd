@@ -25,7 +25,7 @@ var Biomes = {
 		'maxAltitude': 1.0,
 		'layer': 0,
 		'surfaceTiles': {'grass': 100.0},
-		'objectTiles' : {'plant': 1.0, "tree": 3.0},
+		'objectTiles' : {'plant': 0.5, "tree": 3.0, "rock1": 1.5, "rock2": 1.5, "worms": 3.0, "glamujobe": 3.0},
 		'area': []
 	}
 }
@@ -49,7 +49,11 @@ var TerrainTiles = {
 var ObjectTiles = {
 	"plant": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': GlobalProperties.currentState.plant.tile},
 	"tree": {'layer': 3, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
-	"scanner": {'layer': 4, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 5}
+	"scanner": {'layer': 4, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 5},
+	"rock1": {'layer': 3, 'sourceId': 3, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 0},
+	"rock2": {'layer': 3, 'sourceId': 4, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 0},
+	"worms": {'layer': 3, 'sourceId': 5, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 0},
+	"glamujobe": {'layer': 3, 'sourceId': 6, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 0},
 }
 
 func _ready():
