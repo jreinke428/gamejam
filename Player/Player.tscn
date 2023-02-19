@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bjxbiude46pck" path="res://Player/astronaut-idle-arms.png" id="3_rh15a"]
 [ext_resource type="Texture2D" uid="uid://b24txs0dkwj1b" path="res://Player/Gun/assault-rifle.png" id="5_834ub"]
 [ext_resource type="Script" path="res://Player/Gun/Gun.gd" id="6_a10k5"]
-[ext_resource type="PackedScene" path="res://Player/Gun/Bullet/Bullet.tscn" id="7_iijov"]
+[ext_resource type="PackedScene" uid="uid://h0glhsy8ywnb" path="res://Player/Gun/Bullet/Bullet.tscn" id="7_iijov"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fxyd6"]
 
