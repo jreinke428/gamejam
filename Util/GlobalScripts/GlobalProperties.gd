@@ -43,12 +43,12 @@ var ENEMIES = [
 		'texture' : preload('res://Enemies/Enemy1/enemy1-ui.png')
 	},
 	{
-		'scene' : preload('res://Enemies/Enemy1/Enemy1.tscn'),
-		'texture' : preload('res://Enemies/Enemy1/enemy1-ui.png')
+		'scene' : preload('res://Enemies/Enemy2/Enemy2.tscn'),
+		'texture' : preload('res://Enemies/Enemy2/enemy2-ui.png')
 	},
 	{
-		'scene' : preload('res://Enemies/Enemy1/Enemy1.tscn'),
-		'texture' : preload('res://Enemies/Enemy1/enemy1-ui.png')
+		'scene' : preload('res://Enemies/Enemy3/Enemy3.tscn'),
+		'texture' : preload('res://Enemies/Enemy3/enemy3-ui.png')
 	},
 ]
 

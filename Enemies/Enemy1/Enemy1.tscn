@@ -150,6 +150,8 @@ radius = 15.0
 [node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
 motion_mode = 1
 script = ExtResource("1_0w5jq")
+speed = 50
+damage = 5
 
 [node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)

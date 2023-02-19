@@ -15,9 +15,9 @@ var attackTarget = null
 var curBehavState: BehaviorState
 var attacking = false
 
-var speed = 30
-var health = 5
-var damage = 3
+@export var speed = 30
+@export var health = 5
+@export var damage = 3
 	
 func _process(_delta):
 	stateChanger()
