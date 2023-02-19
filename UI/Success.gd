@@ -1,8 +1,7 @@
 extends Control
 
 func _ready():
-	Signals.player_death.connect(initialize)
-	Signals.scanner_destroyed.connect(initialize)
+	Signals.level_complete.connect(initialize)
 
 func initialize():
 	get_tree().paused = true

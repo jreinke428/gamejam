@@ -8,10 +8,12 @@ var scanInProgress := false
 var scannerGlobalPosition: Vector2
 var curEnemy = GlobalProperties.currentState.enemy.scene
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
+var scanCount = 0
 
 func _ready():
 	Signals.start_scan_attempted.connect(startScan)
 	Signals.scanner_destroyed.connect(scannerDestroyed)
+	Signals.scan_over.connect(scanCompleted)
 
 func _process(delta):
 	if not scanTimer.is_stopped():
@@ -33,6 +35,10 @@ func startScan(scannerPosition: Vector2):
 func scannerDestroyed():
 	if scanInProgress: #robustness
 		print("Scanner broken")
+
+func scanCompleted():
+	scanCount += 1
+	if scanCount == 3: Signals.level_complete.emit()
 
 func spawnEnemies(scannerPosition):
 	if randf() < 0.01:

@@ -11,3 +11,5 @@ signal scanner_destroyed
 signal player_health_changed(newHealth, maxHealth)
 
 signal player_death
+
+signal level_complete
