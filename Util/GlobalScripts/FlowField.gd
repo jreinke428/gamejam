@@ -3,7 +3,7 @@ extends Node
 var MAP_SIZE = GlobalProperties.SCREEN_SIZE # Assumes world is a circle
 var CELL_SIZE = 16
 var MAX_INT = 65535
-var MAX_COST = 255
+var MAX_COST = 511
 var COST_FIELD = Dictionary()
 var INTEGRATION_FIELD = Dictionary()
 var FLOW_FIELD = Dictionary()
@@ -30,6 +30,8 @@ func initializeCostField():
 			var pos = Vector2i(x,y)
 			if worldMap.get_cell_source_id(1, pos) != -1:
 				COST_FIELD[Vector2i(x,y)] = 3
+			elif worldMap.get_cell_source_id(3, pos) != -1:
+				COST_FIELD[Vector2i(x,y)] = MAX_COST
 			else:
 				COST_FIELD[Vector2i(x,y)] = 1
 			

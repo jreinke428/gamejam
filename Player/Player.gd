@@ -12,6 +12,7 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 @onready var waterParticles = $WaterParticles
 @onready var waterTrailingParticles = $WaterTrailingParticles
 @onready var gun = $Gun
+@onready var world = $'../'
 
 func _process(_delta):
 	animationManager()
@@ -65,11 +66,11 @@ func movement():
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
 	
-	velocity = velocity.lerp(direction.normalized() * speed * (0.5 if GlobalGameTools.isInWater(global_position) else 1), acceleration) if direction.length() > 0 else velocity.lerp(Vector2.ZERO, friction)
+	velocity = velocity.lerp(direction.normalized() * speed * (0.5 if world.isInWater(global_position) else 1), acceleration) if direction.length() > 0 else velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
 	
 func animationManager():
-	if GlobalGameTools.isInWater(global_position):
+	if world.isInWater(global_position):
 		material.shader = waterShader
 		waterParticles.visible = true
 		if abs(velocity.x) < 10 and abs(velocity.y) < 10:

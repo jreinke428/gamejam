@@ -50,7 +50,7 @@ var ObjectTiles = {
 	"plant1": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 2},
 	"plant2": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 3},
 	"plant3": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 4},
-	"tree": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1}
+	"tree": {'layer': 3, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1}
 	
 }
 
@@ -127,3 +127,24 @@ func between(val, start, end) -> bool:
 	
 func setTerrainColor():
 	set_layer_modulate(0, GlobalProperties.currentState.planet.color)
+
+func isInWater(pos):
+	var mapPos = local_to_map(pos)
+	if get_cell_source_id(1, mapPos) != -1:
+		if get_cell_source_id(1, mapPos+Vector2i.UP) == -1 and int(pos.y) % 16 < 4: return false
+		if get_cell_source_id(1, mapPos+Vector2i.RIGHT) == -1 and int(pos.x) % 16 > 12: return false
+		if get_cell_source_id(1, mapPos+Vector2i.DOWN) == -1 and int(pos.y) % 16 > 10: return false
+		if get_cell_source_id(1, mapPos+Vector2i.LEFT) == -1 and int(pos.x) % 16 < 4: return false
+		if get_cell_source_id(1, mapPos+Vector2i.UP+Vector2i.RIGHT) == -1 and int(pos.y) % 16 < 4 and int(pos.x) % 16 > 12: return false
+		if get_cell_source_id(1, mapPos+Vector2i.RIGHT+Vector2i.DOWN) == -1 and int(pos.x) % 16 > 12 and int(pos.y) % 16 > 10: return false
+		if get_cell_source_id(1, mapPos+Vector2i.DOWN+Vector2i.LEFT) == -1 and int(pos.y) % 16 > 10 and int(pos.x) % 16 < 4: return false
+		if get_cell_source_id(1, mapPos+Vector2i.LEFT+Vector2i.UP) == -1 and int(pos.x) % 16 < 4 and int(pos.y) % 16 < 4: return false
+		return true
+	return false
+	
+func isValidSpawn(pos):
+	if isInWater(pos): return false
+	if pos.x < 0 or pos.x/16 > GlobalProperties.SCREEN_SIZE.x: return false
+	if pos.y < 0 or pos.y/16 > GlobalProperties.SCREEN_SIZE.y: return false
+	return true
+
