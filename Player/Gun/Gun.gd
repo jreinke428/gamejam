@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var bullet: PackedScene = null
 @onready var fireRateTimer = $FireRate
+@onready var shootSound = $AudioStreamPlayer
 
 var bulletSpeed := 205
 var bulletDamage := 2
@@ -21,5 +22,6 @@ func tryShootGun():
 		get_tree().current_scene.add_child(newBullet)
 		newBullet.global_position = global_position + global_position.direction_to(get_global_mouse_position()) * 11
 		newBullet.global_rotation = global_rotation
+		shootSound.play()
 		
 		fireRateTimer.start()

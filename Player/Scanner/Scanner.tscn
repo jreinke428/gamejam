@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk05knbf7s53g"]
+[gd_scene load_steps=11 format=3 uid="uid://bk05knbf7s53g"]
 
 [ext_resource type="Texture2D" uid="uid://j23ak5xhmnkp" path="res://Player/Scanner/scanner.png" id="1_d8x31"]
 [ext_resource type="Script" path="res://Player/Scanner/Scanner.gd" id="1_tyeq2"]
+[ext_resource type="AudioStream" uid="uid://b1m7xhyup6o0o" path="res://Player/Scanner/scan.wav" id="3_85u74"]
+[ext_resource type="AudioStream" uid="uid://dtt3thbjf3erf" path="res://Player/Scanner/scanner-damaged.wav" id="4_y4j2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m611r"]
 atlas = ExtResource("1_d8x31")
@@ -62,3 +64,15 @@ polygon = PackedVector2Array(-6.5, -5, -6, -6, -5, -6.5, 5, -6.5, 6, -6, 6.5, -5
 [node name="ScanAnimationRate" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_85u74")
+pitch_scale = 0.9
+max_distance = 500.0
+attenuation = 2.46229
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_y4j2k")
+pitch_scale = 0.9
+max_distance = 500.0
+attenuation = 2.46229

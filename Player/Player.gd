@@ -11,6 +11,8 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 @onready var armAnimations = $ArmAnimation
 @onready var waterParticles = $WaterParticles
 @onready var waterTrailingParticles = $WaterTrailingParticles
+@onready var damagedSound = $AudioStreamPlayer
+@onready var hitTimer = $HitTimer
 @onready var gun = $Gun
 @onready var world = $'../'
 
@@ -99,10 +101,12 @@ func animationManager():
 			armAnimations.scale.x = sign(velocity.x)
 			
 func hit(damage):
-	print("Ouch " + str(damage))
 	health -= damage
+	damagedSound.play()
 	Signals.player_health_changed.emit(health, maxHealth)
-	#modulate = '#ff9e9e'
-	#hitTimer.start()
+	modulate = '#ff9e9e'
+	hitTimer.start()
 	if health <= 0: Signals.player_death.emit()
 		
+func _on_hit_timer_timeout():
+	modulate = 'FFFFFF'
