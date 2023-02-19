@@ -6,7 +6,7 @@ extends Node2D
 
 var scanInProgress := false
 var scannerGlobalPosition: Vector2
-@onready var curEnemy = GlobalProperties.currentState.enemy.scene
+var curEnemy = GlobalProperties.currentState.enemy.scene
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
 
 func _ready():
