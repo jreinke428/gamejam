@@ -29,3 +29,5 @@ script = ExtResource("3_xyjgm")
 [node name="ScanTimer" type="Timer" parent="."]
 wait_time = 15.0
 one_shot = true
+
+[connection signal="timeout" from="ScanTimer" to="." method="_on_scan_timer_timeout"]

@@ -4,7 +4,6 @@ extends Node
 @onready var player : CharacterBody2D = $'/root/Test/World/Player'
 
 var scanInProgress = false
-var scanPos = null
 var curEnemy = null
 var texture = preload('res://icon.svg')
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
@@ -35,16 +34,16 @@ func isValidSpawn(pos):
 	if pos.y < 0 or pos.y/16 > GlobalProperties.SCREEN_SIZE.y: return false
 	return true
 
-func spawnEnemies():
+func spawnEnemies(scannerPosition):
 	if randf() < 0.05:
 		var dist = randf_range(100,150)
 		var angle = randf_range(0,360)
 		var coords = Vector2(cos(angle)*dist, sin(angle)*dist)
-		while(!isValidSpawn(scanPos+coords)):
+		while(!isValidSpawn(scannerPosition+coords)):
 			dist = randf_range(100,150)
 			angle = randf_range(0,360)
 			coords = Vector2(cos(angle)*dist, sin(angle)*dist)
-		spawnEnemy(scanPos+coords)
+		spawnEnemy(scannerPosition+coords)
 
 func spawnEnemy(pos):
 	var particles : GPUParticles2D = spawnParticles.instantiate()
