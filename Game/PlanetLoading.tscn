@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm27gfrrftb5s"]
+[gd_scene load_steps=5 format=3 uid="uid://cm27gfrrftb5s"]
 
+[ext_resource type="Script" path="res://Game/PlanetLoading.gd" id="1_3iywt"]
 [ext_resource type="Texture2D" uid="uid://bj4ayws0m7xyw" path="res://UI/Start/start-background.png" id="1_jnq88"]
+[ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://UI/Font/8bitOperatorPlus8-Regular.ttf" id="3_olfus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aceob"]
+font = ExtResource("3_olfus")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="PlanetLoading" type="Control"]
 layout_mode = 3
@@ -9,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3iywt")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -18,3 +27,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_jnq88")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Plant" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Enemy" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Plant" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Plant"
+label_settings = SubResource("LabelSettings_aceob")
+horizontal_alignment = 1
+
+[node name="Enemy" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Enemy"
+label_settings = SubResource("LabelSettings_aceob")
