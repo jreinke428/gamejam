@@ -10,6 +10,21 @@ var curEnemy = GlobalProperties.currentState.enemy.scene
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
 var scanCount = 0
 
+var scanEventParams = [
+	{
+		"length": 30,
+		"enemySpawnChance": 0.01
+	},
+	{
+		"length": 60,
+		"enemySpawnChance": 0.02
+	},
+	{
+		"length": 90,
+		"enemySpawnChance": 0.03
+	}
+]
+
 func _ready():
 	Signals.start_scan_attempted.connect(startScan)
 	Signals.scanner_destroyed.connect(scannerDestroyed)
@@ -17,7 +32,7 @@ func _ready():
 
 func _process(delta):
 	if not scanTimer.is_stopped():
-		spawnEnemies(scannerGlobalPosition)
+		spawnEnemies(scannerGlobalPosition, scanEventParams[scanCount].enemySpawnChance)
 	
 func startScan(scannerPosition: Vector2):
 	if scanInProgress:
@@ -30,7 +45,7 @@ func startScan(scannerPosition: Vector2):
 	
 	FlowField.setTarget(scannerGlobalPosition)
 	Signals.scan_started.emit()
-	scanTimer.start()
+	scanTimer.start(scanEventParams[scanCount].length)
 	
 func scannerDestroyed():
 	if scanInProgress: #robustness
@@ -40,8 +55,8 @@ func scanCompleted():
 	scanCount += 1
 	if scanCount == 3: Signals.level_complete.emit()
 
-func spawnEnemies(scannerPosition):
-	if randf() < 0.01:
+func spawnEnemies(scannerPosition, spawnChance: float):
+	if randf() < spawnChance:
 		var dist = randf_range(100,150)
 		var angle = randf_range(0,360)
 		var coords = Vector2(cos(angle)*dist, sin(angle)*dist)
