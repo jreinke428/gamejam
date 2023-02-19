@@ -101,7 +101,8 @@ func animationManager():
 func hit(damage):
 	print("Ouch " + str(damage))
 	health -= damage
+	Signals.player_health_changed.emit(health, maxHealth)
 	#modulate = '#ff9e9e'
 	#hitTimer.start()
-	if health <= 0: print("I am dead")
+	if health <= 0: Signals.player_death.emit()
 		

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm27gfrrftb5s"]
+[gd_scene load_steps=6 format=3 uid="uid://cm27gfrrftb5s"]
 
 [ext_resource type="Script" path="res://Game/PlanetLoading.gd" id="1_3iywt"]
 [ext_resource type="Texture2D" uid="uid://bj4ayws0m7xyw" path="res://UI/Start/start-background.png" id="1_jnq88"]
 [ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://UI/Font/8bitOperatorPlus8-Regular.ttf" id="3_olfus"]
+[ext_resource type="Texture2D" uid="uid://hu72411nm635" path="res://UI/plant-ui-box.png" id="3_v5you"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aceob"]
 font = ExtResource("3_olfus")
@@ -50,15 +51,37 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 35
 alignment = 1
 
-[node name="Plant" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="PlantBox" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("3_v5you")
+
+[node name="Plant" type="TextureRect" parent="VBoxContainer/HBoxContainer/PlantBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Enemy" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="EnemyBox" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("3_v5you")
+
+[node name="Enemy" type="TextureRect" parent="VBoxContainer/HBoxContainer/EnemyBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -75,6 +98,6 @@ horizontal_alignment = 1
 
 [node name="Enemy" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "Enemy"
+text = " Enemy"
 label_settings = SubResource("LabelSettings_aceob")
 horizontal_alignment = 1

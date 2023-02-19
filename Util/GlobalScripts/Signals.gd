@@ -7,3 +7,7 @@ signal scan_started
 signal scan_over
 
 signal scanner_destroyed
+
+signal player_health_changed(newHealth, maxHealth)
+
+signal player_death

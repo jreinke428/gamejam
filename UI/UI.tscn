@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://luhveopn44if"]
+[gd_scene load_steps=7 format=3 uid="uid://luhveopn44if"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_gpt1g"]
 [ext_resource type="Texture2D" uid="uid://bcrfo76a1ix4n" path="res://UI/healthbar.png" id="2_j6qqa"]
 [ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://UI/Font/8bitOperatorPlus8-Regular.ttf" id="3_4dd4m"]
+[ext_resource type="Texture2D" uid="uid://hu72411nm635" path="res://UI/plant-ui-box.png" id="4_ud7of"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_amk6e"]
+font = ExtResource("3_4dd4m")
+font_size = 7
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6f2pk"]
 font = ExtResource("3_4dd4m")
@@ -19,15 +26,63 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gpt1g")
 
+[node name="PlantContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 290.0
+offset_top = 6.0
+offset_right = 314.0
+offset_bottom = 57.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="PlantBox" type="TextureRect" parent="PlantContainer"]
+layout_mode = 2
+texture = ExtResource("4_ud7of")
+
+[node name="ColorRect" type="ColorRect" parent="PlantContainer/PlantBox"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.533333)
+
+[node name="PlantTexture" type="TextureRect" parent="PlantContainer/PlantBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlantText" type="Label" parent="PlantContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_amk6e")
+horizontal_alignment = 1
+
 [node name="HealthBar" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_left = 0.0125
-anchor_top = 0.0222222
-anchor_right = 0.2125
-anchor_bottom = 0.111111
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 68.0
+offset_bottom = 20.0
 texture = ExtResource("2_j6qqa")
 stretch_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="ColorRect" parent="HealthBar"]
 show_behind_parent = true

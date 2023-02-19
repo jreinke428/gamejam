@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://t0dvn3sro3gg"]
+[gd_scene load_steps=8 format=3 uid="uid://t0dvn3sro3gg"]
 
 [ext_resource type="PackedScene" uid="uid://dn4wef8waj42" path="res://World/World.tscn" id="1_2ir4f"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_r6l7n"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Util/Camera.gd" id="3_xyjgm"]
 [ext_resource type="PackedScene" uid="uid://1yldbcifc4nf" path="res://UI/Pause.tscn" id="5_6u5lj"]
 [ext_resource type="PackedScene" uid="uid://luhveopn44if" path="res://UI/UI.tscn" id="5_k4w1c"]
+[ext_resource type="PackedScene" uid="uid://bveufhfhhphjn" path="res://UI/Failed.tscn" id="7_d5q75"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_r6l7n")
@@ -38,6 +39,9 @@ one_shot = true
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource("5_6u5lj")]
 process_mode = 3
+visible = false
+
+[node name="Failed" parent="CanvasLayer" instance=ExtResource("7_d5q75")]
 visible = false
 
 [connection signal="timeout" from="ScanTimer" to="." method="_on_scan_timer_timeout"]
