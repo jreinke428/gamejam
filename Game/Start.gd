@@ -15,3 +15,6 @@ func movePlanets():
 		var time = randf_range(5, 10)
 		tween.tween_property(planet, 'position:x', 320 if planet.global_position.x < 0 else -40, time)
 		planetTimer.start(time+randf_range(1,3))
+
+func _on_start_pressed():
+	get_tree().change_scene_to_file("res://Game/Selection.tscn")

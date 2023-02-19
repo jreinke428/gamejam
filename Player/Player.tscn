@@ -13,7 +13,7 @@
 [sub_resource type="Gradient" id="Gradient_bh8vb"]
 colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w5nx8"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hrmeh"]
 gradient = SubResource("Gradient_bh8vb")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5muu"]
@@ -27,7 +27,7 @@ initial_velocity_max = 2.0
 damping_min = 0.2
 damping_max = 0.5
 scale_min = 0.8
-color_initial_ramp = SubResource("GradientTexture1D_w5nx8")
+color_initial_ramp = SubResource("GradientTexture1D_hrmeh")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vssll"]
 radius = 3.0
@@ -194,7 +194,7 @@ animations = [{
 [sub_resource type="Gradient" id="Gradient_f3bwt"]
 colors = PackedColorArray(0.955611, 0.969852, 0.999999, 1, 0.126, 0.5852, 0.7, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mcb8p"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ytk11"]
 gradient = SubResource("Gradient_f3bwt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ti5mo"]
@@ -208,14 +208,14 @@ initial_velocity_max = 2.0
 damping_min = 0.2
 damping_max = 0.5
 scale_max = 1.3
-color_initial_ramp = SubResource("GradientTexture1D_mcb8p")
+color_initial_ramp = SubResource("GradientTexture1D_ytk11")
 
 [node name="Player" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_fxyd6")
 script = ExtResource("1")
 
 [node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_t5muu")
@@ -244,13 +244,8 @@ amount = 12
 process_material = SubResource("ParticleProcessMaterial_ti5mo")
 local_coords = true
 
-[node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]
-position = Vector2(0, 3)
-emitting = false
-amount = 16
-process_material = SubResource("ParticleProcessMaterial_t5muu")
-
 [node name="Gun" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("5_834ub")
 offset = Vector2(0, -4)
 script = ExtResource("6_a10k5")
