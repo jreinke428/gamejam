@@ -12,7 +12,6 @@ func _ready():
 func _process(delta):
 	if canStartScan and playerNearby: 
 		if Input.is_action_just_pressed("start_scan"):
-			print('pred')
 			Signals.start_scan_attempted.emit(global_position)
 			
 func _on_scan_over():

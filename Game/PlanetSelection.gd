@@ -2,7 +2,7 @@ extends Control
 
 var planetSelections = []
 
-@onready var buttons := $ButtonContainer.get_children()
+@onready var buttons := $VBoxContainer/ButtonContainer.get_children()
 
 func _ready():
 	var planetValues = GlobalProperties.PLANETS.duplicate(true)

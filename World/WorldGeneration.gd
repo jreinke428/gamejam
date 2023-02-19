@@ -50,8 +50,8 @@ var ObjectTiles = {
 	"plant1": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 2},
 	"plant2": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 3},
 	"plant3": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 4},
-	"tree": {'layer': 3, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1}
-	
+	"tree": {'layer': 3, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
+	"scanner": {'layer': 4, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 5}
 }
 
 func _ready():
@@ -116,8 +116,11 @@ func placeBiomeObject(biome: String, worldPosition: Vector2i):
 	for tileName in spawnRates:
 		total += spawnRates[tileName]
 		if roll <= total:
-			set_cell(ObjectTiles[tileName].layer, worldPosition, ObjectTiles[tileName].sourceId, ObjectTiles[tileName].atlasCoords, ObjectTiles[tileName].alternativeTile)
+			placeObject(tileName, worldPosition)
 			return
+			
+func placeObject(tileName: String, worldPosition: Vector2i):
+	set_cell(ObjectTiles[tileName].layer, worldPosition, ObjectTiles[tileName].sourceId, ObjectTiles[tileName].atlasCoords, ObjectTiles[tileName].alternativeTile)
 
 func setSurfacePlaceholder(worldPosition: Vector2i, tileName: String, biome: String):
 	set_cell(Biomes[biome].layer, worldPosition, 0, SurfacePlaceholderTiles[tileName], 0)
