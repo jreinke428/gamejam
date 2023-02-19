@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://clb8w4ju8c8ia"]
+[gd_scene load_steps=40 format=3 uid="uid://clb8w4ju8c8ia"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://coqh2uk6ck0l" path="res://Player/astronaut-walk-only-body.png" id="2_skyqt"]
@@ -212,6 +212,9 @@ damping_max = 0.5
 scale_max = 1.3
 color_initial_ramp = SubResource("GradientTexture1D_ytk11")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_imer1"]
+radius = 25.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 material = SubResource("ShaderMaterial_fxyd6")
 script = ExtResource("1")
@@ -268,4 +271,10 @@ stream = ExtResource("9_yig8i")
 wait_time = 0.2
 one_shot = true
 
+[node name="PickupRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius"]
+shape = SubResource("CircleShape2D_imer1")
+
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
+[connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]

@@ -91,7 +91,7 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 60.0
 offset_bottom = 12.0
-color = Color(1, 0, 0.25098, 1)
+color = Color(0.917647, 0.196078, 0.235294, 1)
 
 [node name="HealthText" type="Label" parent="HealthBar"]
 layout_mode = 1

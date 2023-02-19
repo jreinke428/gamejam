@@ -20,6 +20,7 @@ func hit(damage):
 	health -= damage
 	damagedSound.play()
 	changeHealth()
+	GlobalGameTools.createDamageNumber(global_position-Vector2(0,5), damage, 'ffffff')
 	if health <= 0:
 		Signals.scanner_destroyed.emit()
 		queue_free()

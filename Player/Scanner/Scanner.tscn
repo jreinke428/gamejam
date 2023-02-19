@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk05knbf7s53g"]
+[gd_scene load_steps=12 format=3 uid="uid://bk05knbf7s53g"]
 
 [ext_resource type="Texture2D" uid="uid://j23ak5xhmnkp" path="res://Player/Scanner/scanner.png" id="1_d8x31"]
 [ext_resource type="Script" path="res://Player/Scanner/Scanner.gd" id="1_tyeq2"]
 [ext_resource type="AudioStream" uid="uid://b1m7xhyup6o0o" path="res://Player/Scanner/scan.wav" id="3_85u74"]
-[ext_resource type="AudioStream" uid="uid://dtt3thbjf3erf" path="res://Player/Scanner/scanner-damaged.wav" id="4_y4j2k"]
 [ext_resource type="Texture2D" uid="uid://tqyfgkro5s2s" path="res://Player/Scanner/scanner-health.png" id="3_bu5na"]
+[ext_resource type="AudioStream" uid="uid://dtt3thbjf3erf" path="res://Player/Scanner/scanner-damaged.wav" id="4_y4j2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m611r"]
 atlas = ExtResource("1_d8x31")
@@ -77,6 +77,7 @@ stream = ExtResource("4_y4j2k")
 pitch_scale = 0.9
 max_distance = 500.0
 attenuation = 2.46229
+
 [node name="Health" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,4 +99,4 @@ offset_left = 2.0
 offset_right = 14.0
 offset_bottom = 2.0
 grow_vertical = 2
-color = Color(1, 0, 0.25098, 1)
+color = Color(0.917647, 0.196078, 0.235294, 1)

@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var scanText = $ScanText
+
 var canStartScan := true
 var playerNearby := false
 
@@ -12,6 +14,7 @@ func _ready():
 func _process(delta):
 	if canStartScan and playerNearby: 
 		if Input.is_action_just_pressed("start_scan"):
+			monitoring = false
 			Signals.start_scan_attempted.emit(global_position)
 			
 func _on_scan_over():
@@ -19,12 +22,14 @@ func _on_scan_over():
 	
 func _on_scan_started():
 	canStartScan = false
+	scanText.visible = false
 
 func _on_body_entered(body):
 	if body.is_in_group("Player") and canStartScan:
 		playerNearby = true
-		print("Press E To Begin Scan") # replace with UI for start scan
+		scanText.visible = true
 
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		playerNearby = false
+		scanText.visible = false

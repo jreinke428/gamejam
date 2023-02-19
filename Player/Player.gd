@@ -104,9 +104,14 @@ func hit(damage):
 	health -= damage
 	damagedSound.play()
 	Signals.player_health_changed.emit(health, maxHealth)
+	GlobalGameTools.createDamageNumber(global_position-Vector2(0,5), damage, 'ffffff')
 	modulate = '#ff9e9e'
 	hitTimer.start()
 	if health <= 0: Signals.player_death.emit()
+	
+func _on_pickup_radius_area_entered(area):
+	if area.is_in_group("Experience"):
+		area.goToPlayer(self)
 		
 func _on_hit_timer_timeout():
 	modulate = 'FFFFFF'

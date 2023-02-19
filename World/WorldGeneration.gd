@@ -25,7 +25,7 @@ var Biomes = {
 		'maxAltitude': 1.0,
 		'layer': 0,
 		'surfaceTiles': {'grass': 100.0},
-		'objectTiles' : {"plant1": 0.0, "plant2": 0.0, "plant3": 1.0, "tree": 3.0},
+		'objectTiles' : {'plant': 1.0, "tree": 3.0},
 		'area': []
 	}
 }
@@ -47,9 +47,7 @@ var TerrainTiles = {
 
 #'tree': {'layer': 0, 'sourceId': 0, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
 var ObjectTiles = {
-	"plant1": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 2},
-	"plant2": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 3},
-	"plant3": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 4},
+	"plant": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': GlobalProperties.currentState.plant.tile},
 	"tree": {'layer': 3, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
 	"scanner": {'layer': 4, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 5}
 }

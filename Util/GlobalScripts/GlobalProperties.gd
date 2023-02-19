@@ -27,13 +27,16 @@ var PLANETS := [
 
 var PLANTS = [
 	{
-		'texture' : preload("res://World/Fauna/alien-plant-1.png")
+		'texture' : preload("res://World/Fauna/alien-plant-1.png"),
+		'tile' : 2
 	},
 	{
-		'texture' : preload("res://World/Fauna/alien-plant-2.png")
+		'texture' : preload("res://World/Fauna/alien-plant-2.png"),
+		'tile' : 3
 	},
 	{
-		'texture' : preload("res://World/Fauna/alien-plant-3.png")
+		'texture' : preload("res://World/Fauna/alien-plant-3.png"),
+		'tile' : 4
 	}
 ]
 

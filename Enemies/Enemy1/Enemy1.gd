@@ -35,8 +35,11 @@ func navigate():
 func hit(damage):
 	health -= damage
 	modulate = '#ff9e9e'
+	GlobalGameTools.createDamageNumber(global_position-Vector2(0,5), damage)
 	hitTimer.start()
-	if health <= 0: queue_free()
+	if health <= 0: 
+		GlobalGameTools.dropExperience(global_position, 10, world)
+		queue_free()
 	
 func waterParticleHandler():
 	if world.isInWater(global_position):
