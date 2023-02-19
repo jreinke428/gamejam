@@ -5,6 +5,7 @@ var waterMaterial = preload("res://Util/Shaders/WaterMaterial.tres")
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var waterParticles = $WaterParticles
 @onready var waterTrailingParticles = $WaterTrailingParticles
+@onready var world = $'../'
 var speed = 30
 var health = 50
 	
@@ -16,7 +17,7 @@ func _physics_process(_delta):
 	
 func navigate():
 	velocity = FlowField.getVector(global_position)*speed
-	if GlobalGameTools.isInWater(global_position): velocity /= 2
+	if world.isInWater(global_position): velocity /= 2
 	move_and_slide()
 
 func hit(damage):
@@ -26,7 +27,7 @@ func hit(damage):
 	if health <= 0: queue_free()
 	
 func animationManager():
-	if GlobalGameTools.isInWater(global_position):
+	if world.isInWater(global_position):
 		material = waterMaterial
 		waterParticles.visible = true
 		if abs(velocity.x) < 10 and abs(velocity.y) < 10:
