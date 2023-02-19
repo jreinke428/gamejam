@@ -4,8 +4,8 @@ extends Node
 @onready var player : CharacterBody2D = $'/root/Test/World/Player'
 
 var scanInProgress = false
-var curEnemy = null
-var texture = preload('res://icon.svg')
+var scanPos = null
+var curEnemy = preload('res://Enemies/Enemy1/Enemy1.tscn')
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
 
 func isInWater(pos):
@@ -49,13 +49,11 @@ func spawnEnemy(pos):
 	var particles : GPUParticles2D = spawnParticles.instantiate()
 	particles.global_position = pos
 	particles.emitting = true
-	particles.z_index += 1
 	get_tree().root.add_child(particles)
 	await get_tree().create_timer(1.0).timeout 
-	var enemy = Sprite2D.new()
-	enemy.texture = texture
+	var enemy = curEnemy.instantiate()
 	enemy.global_position = pos
-	get_tree().root.add_child(enemy)
-	enemy.create_tween().tween_property(enemy, 'scale', Vector2(0.1, 0.1), 0.5).from(Vector2(0.01,0.01))
+	surfaceMap.add_child(enemy)
+	enemy.create_tween().tween_property(enemy, 'scale', Vector2(1, 1), 0.3).from(Vector2(0.1,0.1))
 		
 		

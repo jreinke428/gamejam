@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmea7qhdfmfwl"]
+[gd_scene load_steps=10 format=3 uid="uid://cmea7qhdfmfwl"]
 
 [ext_resource type="Script" path="res://Game/Start.gd" id="1_asqwe"]
 [ext_resource type="Texture2D" uid="uid://bj4ayws0m7xyw" path="res://UI/Start/start-background.png" id="2_e4xmw"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cdckogo51kuu7" path="res://UI/Start/start-planet-3.png" id="5_0iyt5"]
 [ext_resource type="Texture2D" uid="uid://bae5cnf0kqxyu" path="res://UI/Start/start-planet-4.png" id="6_x0ku6"]
 [ext_resource type="Texture2D" uid="uid://d2a0gclvvsqgn" path="res://UI/Start/start-planet-5.png" id="7_pptvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajh44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmuqs"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
@@ -77,6 +81,8 @@ offset_right = 37.0
 offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ajh44")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmuqs")
 text = "Start"
 flat = true
 
@@ -96,3 +102,5 @@ horizontal_alignment = 1
 [node name="PlanetTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]

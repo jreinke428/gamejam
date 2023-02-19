@@ -23,5 +23,4 @@ color_initial_ramp = SubResource("GradientTexture1D_tbqvi")
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_ibeu4")
-lifetime = 2.0
 one_shot = true
