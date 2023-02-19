@@ -14,7 +14,8 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 @onready var gun = $Gun
 @onready var world = $'../'
 
-var health: int = 50
+var health = 50
+var maxHealth = 50
 
 func _process(_delta):
 	animationManager()
