@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbrlrmyqne8d"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://b6g2mt7lko3x6" path="res://Player/guns/bullet.png" id="1_4cmse"]
-[ext_resource type="Script" path="res://Player/guns/Bullet.gd" id="2_jil83"]
+[ext_resource type="Texture2D" uid="uid://b6g2mt7lko3x6" path="res://Player/Gun/Bullet/bullet.png" id="1_4cmse"]
+[ext_resource type="Script" path="res://Player/Gun/Bullet/Bullet.gd" id="2_jil83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6dp7y"]
 radius = 1.0

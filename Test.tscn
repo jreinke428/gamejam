@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dn4wef8waj42" path="res://World/World.tscn" id="1_2ir4f"]
 [ext_resource type="Script" path="res://GameManager.gd" id="1_r6l7n"]
-[ext_resource type="PackedScene" uid="uid://puhruq0pjphi" path="res://Player/Player.tscn" id="2_5wnah"]
+[ext_resource type="PackedScene" uid="uid://clb8w4ju8c8ia" path="res://Player/Player.tscn" id="2_5wnah"]
 [ext_resource type="Script" path="res://Util/Camera.gd" id="3_xyjgm"]
 
 [node name="Test" type="Node2D"]

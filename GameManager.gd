@@ -17,11 +17,13 @@ func startScan(scannerPosition: Vector2):
 	if scanInProgress:
 		return 
 	
-	print("Scanner position {}".format(scannerPosition))
 	scannerGlobalPosition = scannerPosition
 	scanInProgress = true
+	
+	FlowField.setTarget(scannerGlobalPosition)
 	Signals.scan_started.emit()
 	scanTimer.start()
 
 func _on_scan_timer_timeout():
+	print("Scan done.")
 	Signals.scan_over.emit()

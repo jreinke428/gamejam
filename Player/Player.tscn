@@ -1,12 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://puhruq0pjphi"]
+[gd_scene load_steps=37 format=3 uid="uid://clb8w4ju8c8ia"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://coqh2uk6ck0l" path="res://Player/astronaut-walk-only-body.png" id="2_skyqt"]
 [ext_resource type="Texture2D" uid="uid://c7tmv1n7sonc3" path="res://Player/astronaut-walk-only-arms.png" id="3_jcap4"]
 [ext_resource type="Texture2D" uid="uid://bjxbiude46pck" path="res://Player/astronaut-idle-arms.png" id="3_rh15a"]
-[ext_resource type="Texture2D" uid="uid://b24txs0dkwj1b" path="res://Player/guns/assault-rifle.png" id="5_834ub"]
-[ext_resource type="Script" path="res://Player/guns/Gun.gd" id="6_a10k5"]
-[ext_resource type="PackedScene" uid="uid://wbrlrmyqne8d" path="res://Player/guns/Bullet.tscn" id="7_iijov"]
+[ext_resource type="Texture2D" uid="uid://b24txs0dkwj1b" path="res://Player/Gun/assault-rifle.png" id="5_834ub"]
+[ext_resource type="Script" path="res://Player/Gun/Gun.gd" id="6_a10k5"]
+[ext_resource type="PackedScene" path="res://Player/Gun/Bullet/Bullet.tscn" id="7_iijov"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fxyd6"]
 
