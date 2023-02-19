@@ -4,8 +4,11 @@ extends StaticBody2D
 @onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var scanSound: AudioStreamPlayer2D = $AudioStreamPlayer
 @onready var damagedSound: AudioStreamPlayer2D = $AudioStreamPlayer2
+@onready var healthBar = $Health/HealthBar
 
 var health := 50
+var maxHealth := 50
+var healthBarWidth := 12
 
 func _ready():
 	Signals.scan_over.connect(scanOver)
@@ -16,12 +19,12 @@ func _process(delta):
 func hit(damage):
 	health -= damage
 	damagedSound.play()
+	changeHealth()
 	if health <= 0:
 		Signals.scanner_destroyed.emit()
 		queue_free()
 		
 func scanOver():
-	print("Scan complete, returning to player.")
 	queue_free()
 
 func tryPlayingScanAnimation():
@@ -31,5 +34,8 @@ func tryPlayingScanAnimation():
 	animatedSprite.play("scanning")
 	scanSound.play()
 	scanAnimationRateTimer.start()
+	
+func changeHealth():
+	healthBar.create_tween().tween_property(healthBar, 'size:x', clampf(healthBarWidth*health/maxHealth,0.0,healthBarWidth), 0.1)
 	
 	
