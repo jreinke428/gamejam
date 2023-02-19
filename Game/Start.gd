@@ -17,4 +17,4 @@ func movePlanets():
 		planetTimer.start(time+randf_range(1,3))
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Game/Selection.tscn")
+	get_tree().change_scene_to_file("res://Game/PlanetSelection.tscn")

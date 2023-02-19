@@ -45,10 +45,6 @@ var TerrainTiles = {
 	'grass': {'terrainSet': 0, 'terrain': 1},
 }
 
-var TerrainColors = [
-	'ea323c', '5ac54f', 'ff5000', 'db3ffd'
-]
-
 #'tree': {'layer': 0, 'sourceId': 0, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
 var ObjectTiles = {
 	"plant1": {'layer': 2, 'sourceId': 7, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 2},
@@ -59,7 +55,8 @@ var ObjectTiles = {
 }
 
 func _ready():
-	chooseTerrainColor()
+	FlowField.worldMap = self
+	setTerrainColor()
 	generateTerrain()
 
 func clearWorldTileMaps():
@@ -128,5 +125,5 @@ func setSurfacePlaceholder(worldPosition: Vector2i, tileName: String, biome: Str
 func between(val, start, end) -> bool:
 	return start <= val and val < end # i think this still works
 	
-func chooseTerrainColor():
-	set_layer_modulate(0, Color(TerrainColors[randf_range(0, TerrainColors.size())]))
+func setTerrainColor():
+	set_layer_modulate(0, GlobalProperties.currentState.planet.color)

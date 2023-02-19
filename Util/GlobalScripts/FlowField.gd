@@ -8,7 +8,7 @@ var COST_FIELD = Dictionary()
 var INTEGRATION_FIELD = Dictionary()
 var FLOW_FIELD = Dictionary()
 var vectors = Node2D.new()
-@onready var surfaceMap : TileMap = $'/root/Test/World'
+var worldMap
 var targetPos
 
 func initializeFields():
@@ -28,7 +28,7 @@ func initializeCostField():
 	for x in range(MAP_SIZE.x):
 		for y in range(MAP_SIZE.y):
 			var pos = Vector2i(x,y)
-			if surfaceMap.get_cell_source_id(1, pos) != -1:
+			if worldMap.get_cell_source_id(1, pos) != -1:
 				COST_FIELD[Vector2i(x,y)] = 3
 			else:
 				COST_FIELD[Vector2i(x,y)] = 1

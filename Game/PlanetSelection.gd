@@ -25,13 +25,16 @@ func _on_planet_button_1_pressed():
 	GlobalProperties.currentState.planet = planetSelections[0].planet
 	GlobalProperties.currentState.plant = planetSelections[0].plant
 	GlobalProperties.currentState.enemy = planetSelections[0].enemy
+	get_tree().change_scene_to_file("res://Game/PlanetLoading.tscn")
 
 func _on_planet_button_2_pressed():
 	GlobalProperties.currentState.planet = planetSelections[1].planet
 	GlobalProperties.currentState.plant = planetSelections[1].plant
 	GlobalProperties.currentState.enemy = planetSelections[1].enemy
+	get_tree().change_scene_to_file("res://Game/PlanetLoading.tscn")
 
 func _on_planet_button_3_pressed():
 	GlobalProperties.currentState.planet = planetSelections[2].planet
 	GlobalProperties.currentState.plant = planetSelections[2].plant
 	GlobalProperties.currentState.enemy = planetSelections[2].enemy
+	get_tree().change_scene_to_file("res://Game/PlanetLoading.tscn")
