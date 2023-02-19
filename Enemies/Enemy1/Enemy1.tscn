@@ -144,7 +144,7 @@ color_initial_ramp = SubResource("GradientTexture1D_jvnv3")
 radius = 5.0
 height = 14.0
 
-[node name="Enemy1" type="CharacterBody2D"]
+[node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
 motion_mode = 1
 script = ExtResource("1_0w5jq")
 

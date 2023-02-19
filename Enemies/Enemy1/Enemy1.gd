@@ -7,7 +7,7 @@ var waterMaterial = preload("res://Util/Shaders/WaterMaterial.tres")
 @onready var waterTrailingParticles = $WaterTrailingParticles
 @onready var world = $'../'
 var speed = 30
-var health = 50
+var health = 5
 	
 func _process(_delta):
 	animationManager()

@@ -5,5 +5,3 @@ func toggleVisibility(item: CanvasItem):
 		item.hide()
 	else:
 		item.show()
-		
-		
