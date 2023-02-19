@@ -1,9 +1,13 @@
-[gd_scene format=3 uid="uid://coak4lc6aw6gn"]
+[gd_scene load_steps=2 format=3 uid="uid://coak4lc6aw6gn"]
+
+[ext_resource type="Script" path="res://Util/Camera.gd" id="1_2kaof"]
 
 [node name="Camera2D" type="Camera2D"]
 position = Vector2(-15, -11)
 limit_left = 0
 limit_top = 0
+limit_right = 1536
+limit_bottom = 864
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -11,3 +15,4 @@ drag_left_margin = 0.05
 drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
+script = ExtResource("1_2kaof")

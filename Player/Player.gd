@@ -18,6 +18,8 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 
 var health = 50
 var maxHealth = 50
+var experienceCount = 0
+var levelupAmount = 50
 
 func _process(_delta):
 	animationManager()
@@ -108,6 +110,13 @@ func hit(damage):
 	modulate = '#ff9e9e'
 	hitTimer.start()
 	if health <= 0: Signals.player_death.emit()
+	
+func pickupExperience(amount):
+	experienceCount += amount
+	if experienceCount >= levelupAmount:
+		experienceCount = 0
+		levelupAmount *= 1.5
+		Signals.level_up.emit()
 	
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("Experience"):

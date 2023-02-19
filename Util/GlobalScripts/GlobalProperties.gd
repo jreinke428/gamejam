@@ -60,4 +60,10 @@ var currentState = {
 	'plant' : null,
 	'enemy' : null
 }
+
+var playerStats = {
+	'damage' : 2,
+	'fireRate' : 0.5,
+	'pierce' : 1
+}
 	

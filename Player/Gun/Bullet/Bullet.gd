@@ -3,7 +3,7 @@ extends Area2D
 var speed: int = 200
 var damage: int = 1
 
-var pierceCount = 1
+var pierceCount = GlobalProperties.playerStats.pierce
 
 func _physics_process(delta):
 	var movement = Vector2.RIGHT.rotated(rotation) * speed * delta
