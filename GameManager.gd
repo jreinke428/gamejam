@@ -12,16 +12,16 @@ var scanCount = 0
 
 var scanEventParams = [
 	{
-		"length": 30,
+		"length": 20,
+		"enemySpawnChance": 0.008
+	},
+	{
+		"length": 40,
 		"enemySpawnChance": 0.01
 	},
 	{
 		"length": 60,
-		"enemySpawnChance": 0.02
-	},
-	{
-		"length": 90,
-		"enemySpawnChance": 0.03
+		"enemySpawnChance": 0.014
 	}
 ]
 

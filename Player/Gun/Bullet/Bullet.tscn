@@ -7,6 +7,8 @@
 radius = 1.0
 
 [node name="Sprite2D" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_jil83")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

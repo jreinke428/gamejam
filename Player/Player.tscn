@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://clb8w4ju8c8ia"]
+[gd_scene load_steps=41 format=3 uid="uid://clb8w4ju8c8ia"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://coqh2uk6ck0l" path="res://Player/astronaut-walk-only-body.png" id="2_skyqt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h0glhsy8ywnb" path="res://Player/Gun/Bullet/Bullet.tscn" id="7_iijov"]
 [ext_resource type="AudioStream" uid="uid://debof4qobyv16" path="res://Player/Gun/gun-shoot.wav" id="8_5b2n8"]
 [ext_resource type="AudioStream" uid="uid://gq0qymh41mns" path="res://Player/player-damaged.wav" id="9_yig8i"]
+[ext_resource type="AudioStream" uid="uid://c3pfftbs4cnj0" path="res://Player/exp-pickup.wav" id="10_bld85"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fxyd6"]
 
@@ -275,6 +276,9 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRadius"]
 shape = SubResource("CircleShape2D_imer1")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bld85")
 
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]

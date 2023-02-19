@@ -12,6 +12,7 @@ var waterShader = preload("res://Util/Shaders/WaterShader.gdshader")
 @onready var waterParticles = $WaterParticles
 @onready var waterTrailingParticles = $WaterTrailingParticles
 @onready var damagedSound = $AudioStreamPlayer
+@onready var expSound = $AudioStreamPlayer2
 @onready var hitTimer = $HitTimer
 @onready var gun = $Gun
 @onready var world = $'../'
@@ -113,6 +114,7 @@ func hit(damage):
 	
 func pickupExperience(amount):
 	experienceCount += amount
+	expSound.play()
 	if experienceCount >= levelupAmount:
 		experienceCount = 0
 		levelupAmount *= 1.5
