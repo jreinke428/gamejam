@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player := $World/Player
-@onready var scanTimer := $ScanTimer
+@onready var scanTimer: Timer = $ScanTimer
 @onready var world: TileMap = $World
 
 var scanInProgress := false
@@ -10,18 +10,21 @@ var curEnemy = GlobalProperties.currentState.enemy.scene
 var spawnParticles = preload('res://Util/Particles/SpawnParticles.tscn')
 var scanCount = 0
 
+var enemySpawnsRemaining: int
+var scanSecondsRemaining: int # for the ScanTimer
+
 var scanEventParams = [
 	{
-		"length": 20,
-		"enemySpawnChance": 0.008
+		"length": 21,
+		"enemiesPerSecond": 1
 	},
 	{
-		"length": 40,
-		"enemySpawnChance": 0.01
+		"length": 41,
+		"enemiesPerSecond": 2
 	},
 	{
-		"length": 60,
-		"enemySpawnChance": 0.014
+		"length": 61,
+		"enemiesPerSecond": 2
 	}
 ]
 
@@ -29,11 +32,7 @@ func _ready():
 	Signals.start_scan_attempted.connect(startScan)
 	Signals.scanner_destroyed.connect(scannerDestroyed)
 	Signals.scan_over.connect(scanCompleted)
-
-func _process(delta):
-	if not scanTimer.is_stopped():
-		spawnEnemies(scannerGlobalPosition, scanEventParams[scanCount].enemySpawnChance)
-	
+			
 func startScan(scannerPosition: Vector2):
 	if scanInProgress:
 		return 
@@ -41,22 +40,25 @@ func startScan(scannerPosition: Vector2):
 	scannerGlobalPosition = scannerPosition
 	scanInProgress = true
 	
+	enemySpawnsRemaining = scanEventParams[scanCount].enemiesPerSecond
+	scanSecondsRemaining = scanEventParams[scanCount].length
+	
 	world.placeObject("scanner", world.local_to_map(scannerPosition))
 	
 	FlowField.setTarget(scannerGlobalPosition)
 	Signals.scan_started.emit()
-	scanTimer.start(scanEventParams[scanCount].length)
+	scanTimer.start()
 	
 func scannerDestroyed():
 	if scanInProgress: #robustness
-		print("Scanner broken")
+		pass
 
 func scanCompleted():
 	scanCount += 1
 	if scanCount == 3: Signals.level_complete.emit()
 
-func spawnEnemies(scannerPosition, spawnChance: float):
-	if randf() < spawnChance:
+func spawnEnemies(scannerPosition):
+	for i in range(scanEventParams[scanCount].enemiesPerSecond):
 		var dist = randf_range(100,150)
 		var angle = randf_range(0,360)
 		var coords = Vector2(cos(angle)*dist, sin(angle)*dist)
@@ -77,7 +79,13 @@ func spawnEnemy(pos):
 	world.add_child(enemy)
 	enemy.create_tween().tween_property(enemy, 'scale', Vector2(1, 1), 0.3).from(Vector2(0.1,0.1))
 
+func calcHowManyEnemiesToSpawn(enemiesLeftToSpawn: int, timeRemaining: int) -> int:
+	return int(round(enemiesLeftToSpawn / timeRemaining))
+
 func _on_scan_timer_timeout():
-	print("Scan done.")
-	scanInProgress = false
-	Signals.scan_over.emit()
+	scanSecondsRemaining -= 1
+	spawnEnemies(scannerGlobalPosition)
+	if scanSecondsRemaining == 0:
+		scanTimer.stop()
+		scanInProgress = false
+		Signals.scan_over.emit()

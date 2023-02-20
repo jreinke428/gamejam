@@ -44,14 +44,12 @@ shape = SubResource("WorldBoundaryShape2D_vjtq7")
 [node name="World" parent="." instance=ExtResource("1_2ir4f")]
 
 [node name="Player" parent="World" instance=ExtResource("2_5wnah")]
-position = Vector2(196, 119)
+position = Vector2(816, 491)
 motion_mode = 1
 
 [node name="Camera2D" parent="World/Player" instance=ExtResource("4_hcspp")]
 
 [node name="ScanTimer" type="Timer" parent="."]
-wait_time = 15.0
-one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

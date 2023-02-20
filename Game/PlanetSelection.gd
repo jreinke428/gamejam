@@ -28,7 +28,6 @@ func _on_planet_button_1_pressed():
 	get_tree().change_scene_to_file("res://Game/PlanetLoading.tscn")
 
 func _on_planet_button_2_pressed():
-	print('yub')
 	GlobalProperties.currentState.planet = planetSelections[1].planet
 	GlobalProperties.currentState.plant = planetSelections[1].plant
 	GlobalProperties.currentState.enemy = planetSelections[1].enemy

@@ -89,5 +89,6 @@ func _on_attack_area_body_exited(body):
 
 func _on_animated_sprite_2d_animation_finished():
 	if curBehavState == BehaviorState.ATTACKING:
-		attackTarget.hit(damage)
-		attackCooldown.start()
+		if attackTarget:
+			attackTarget.hit(damage)
+			attackCooldown.start()
