@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://luhveopn44if"]
+[gd_scene load_steps=8 format=3 uid="uid://luhveopn44if"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_gpt1g"]
 [ext_resource type="Texture2D" uid="uid://bcrfo76a1ix4n" path="res://UI/healthbar.png" id="2_j6qqa"]
 [ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://UI/Font/8bitOperatorPlus8-Regular.ttf" id="3_4dd4m"]
 [ext_resource type="Texture2D" uid="uid://hu72411nm635" path="res://UI/plant-ui-box.png" id="4_ud7of"]
+[ext_resource type="Texture2D" uid="uid://hpc6cgc05h4d" path="res://UI/experience-bar.png" id="5_ku2sj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_amk6e"]
 font = ExtResource("3_4dd4m")
@@ -109,3 +110,24 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_6f2pk")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Experience" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 13.0
+offset_right = 60.0
+offset_bottom = 29.0
+texture = ExtResource("5_ku2sj")
+stretch_mode = 2
+
+[node name="ExperienceBar" type="ColorRect" parent="Experience"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_vertical = 2
+color = Color(0, 0.803922, 0.976471, 1)

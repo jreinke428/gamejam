@@ -115,10 +115,12 @@ func hit(damage):
 func pickupExperience(amount):
 	experienceCount += amount
 	expSound.play()
+	Signals.experience_collected.emit(experienceCount, levelupAmount)
 	if experienceCount >= levelupAmount:
 		experienceCount = 0
 		levelupAmount *= 1.5
 		Signals.level_up.emit()
+		Signals.experience_collected.emit(experienceCount, levelupAmount)
 	
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("Experience"):

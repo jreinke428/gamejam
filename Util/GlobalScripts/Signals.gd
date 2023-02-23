@@ -15,3 +15,5 @@ signal player_death
 signal level_complete
 
 signal level_up
+
+signal experience_collected(experience, max)
