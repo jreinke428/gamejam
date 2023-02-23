@@ -21,6 +21,7 @@ var health = 50
 var maxHealth = 50
 var experienceCount = 0
 var levelupAmount = 50
+var level = 1
 
 func _process(_delta):
 	animationManager()
@@ -117,6 +118,7 @@ func pickupExperience(amount):
 	expSound.play()
 	Signals.experience_collected.emit(experienceCount, levelupAmount)
 	if experienceCount >= levelupAmount:
+		level += 1
 		experienceCount = 0
 		levelupAmount *= 1.5
 		Signals.level_up.emit()

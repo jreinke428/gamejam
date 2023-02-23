@@ -5,23 +5,23 @@ var SCREEN_SIZE:= Vector2i(96, 54)
 var PLANETS := [
 	{
 		'texture' : preload("res://UI/Start/start-planet-1.png"),
-		'color' : 'ff5000'
+		'color' : 'orange'
 	},
 	{
 		'texture' : preload("res://UI/Start/start-planet-2.png"),
-		'color' : 'db3ffd'
+		'color' : 'purple'
 	},
 	{
 		'texture' : preload("res://UI/Start/start-planet-3.png"),
-		'color' : '5ac54f'
+		'color' : 'green'
 	},
 	{
 		'texture' : preload("res://UI/Start/start-planet-4.png"),
-		'color' : 'ea323c'
+		'color' : 'red'
 	},
 	{
 		'texture' : preload("res://UI/Start/start-planet-5.png"),
-		'color' : '787878'
+		'color' : 'white'
 	},
 ]
 

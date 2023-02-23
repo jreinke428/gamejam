@@ -42,7 +42,11 @@ var SurfacePlaceholderTiles = {
 ##	Draw a 3x3 bitmap over the single tile if there is no autotile mask set up yet.
 var TerrainTiles = {
 	'water':  {'terrainSet': 0, 'terrain': 0},
-	'grass': {'terrainSet': 0, 'terrain': 1},
+	'green-grass': {'terrainSet': 1, 'terrain': 0},
+	'orange-grass': {'terrainSet': 1, 'terrain': 1},
+	'purple-grass': {'terrainSet': 1, 'terrain': 2},
+	'red-grass': {'terrainSet': 1, 'terrain': 3},
+	'white-grass': {'terrainSet': 1, 'terrain': 4},
 }
 
 #'tree': {'layer': 0, 'sourceId': 0, 'atlasCoords': Vector2.ZERO, 'alternativeTile': 1},
@@ -58,7 +62,6 @@ var ObjectTiles = {
 
 func _ready():
 	FlowField.worldMap = self
-	setTerrainColor()
 	generateTerrain()
 
 func clearWorldTileMaps():
@@ -93,10 +96,16 @@ func generateTerrain(screenSize: Vector2i = GlobalProperties.SCREEN_SIZE):
 			placeBiomePlaceholderSurfaceTile('forest', worldPosition)
 			Biomes.forest.area.append(worldPosition)
 	
+	# Programatically identify the correct terrain set for the grass color
+	var grassTerrainTileName = GlobalProperties.currentState.planet.color + "-grass"
+	
 	# Fill all placeholder tiles with the correct terrain
 	for biome in Biomes:
 		for surfaceTile in Biomes[biome].surfaceTiles:
-			set_cells_terrain_connect(Biomes[biome].layer, Biomes[biome].area, TerrainTiles[surfaceTile].terrainSet, TerrainTiles[surfaceTile].terrain, false)
+			if surfaceTile == 'grass':
+				set_cells_terrain_connect(Biomes[biome].layer, Biomes[biome].area, TerrainTiles[grassTerrainTileName].terrainSet, TerrainTiles[grassTerrainTileName].terrain, false)
+			else:
+				set_cells_terrain_connect(Biomes[biome].layer, Biomes[biome].area, TerrainTiles[surfaceTile].terrainSet, TerrainTiles[surfaceTile].terrain, false)
 			
 	FlowField.initializeFields()
 	
@@ -129,9 +138,6 @@ func setSurfacePlaceholder(worldPosition: Vector2i, tileName: String, biome: Str
 
 func between(val, start, end) -> bool:
 	return start <= val and val < end # i think this still works
-	
-func setTerrainColor():
-	set_layer_modulate(0, GlobalProperties.currentState.planet.color)
 
 func isInWater(pos):
 	var mapPos = local_to_map(pos)

@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bp3bjm1at6i8l" path="res://World/placeholder-tiles.png" id="1_vi7fc"]
 [ext_resource type="Script" path="res://World/WorldGeneration.gd" id="1_xjcd8"]
-[ext_resource type="Texture2D" uid="uid://k0pil54qm06n" path="res://World/grass-tile.png" id="2_xlu7d"]
 [ext_resource type="Texture2D" uid="uid://dn4jc08f0ah8l" path="res://World/water-tiles.png" id="3_xno42"]
 [ext_resource type="Texture2D" uid="uid://c15fd4h1hydtd" path="res://World/Fauna/rock1.png" id="4_wlpsq"]
 [ext_resource type="Texture2D" uid="uid://ddb0gbx0dc5ge" path="res://World/Fauna/rock2.png" id="5_6101j"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bub4n2virsnoe" path="res://World/Fauna/Plant3.tscn" id="7_jno7f"]
 [ext_resource type="Texture2D" uid="uid://cfcd5wperp516" path="res://World/Fauna/glamujobe.png" id="7_p8ex0"]
 [ext_resource type="PackedScene" uid="uid://bk05knbf7s53g" path="res://Player/Scanner/Scanner.tscn" id="8_byo1q"]
+[ext_resource type="Texture2D" uid="uid://b5qxgc7s1d463" path="res://World/grass-tiles.png" id="12_rc0m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pvi0"]
 texture = ExtResource("1_vi7fc")
@@ -24,20 +24,6 @@ texture = ExtResource("1_vi7fc")
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tx72"]
-texture = ExtResource("2_xlu7d")
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 1
-0:0/0/terrains_peering_bit/right_side = 1
-0:0/0/terrains_peering_bit/bottom_right_corner = 1
-0:0/0/terrains_peering_bit/bottom_side = 1
-0:0/0/terrains_peering_bit/bottom_left_corner = 1
-0:0/0/terrains_peering_bit/left_side = 1
-0:0/0/terrains_peering_bit/top_left_corner = 1
-0:0/0/terrains_peering_bit/top_side = 1
-0:0/0/terrains_peering_bit/top_right_corner = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5cud3"]
 texture = ExtResource("3_xno42")
@@ -394,20 +380,89 @@ scenes/3/scene = ExtResource("6_d576b")
 scenes/4/scene = ExtResource("7_jno7f")
 scenes/5/scene = ExtResource("8_byo1q")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbh20"]
+texture = ExtResource("12_rc0m6")
+0:0/0 = 0
+0:0/0/terrain_set = 1
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 1
+1:0/0/terrain = 1
+1:0/0/terrains_peering_bit/right_side = 1
+1:0/0/terrains_peering_bit/bottom_right_corner = 1
+1:0/0/terrains_peering_bit/bottom_side = 1
+1:0/0/terrains_peering_bit/bottom_left_corner = 1
+1:0/0/terrains_peering_bit/left_side = 1
+1:0/0/terrains_peering_bit/top_left_corner = 1
+1:0/0/terrains_peering_bit/top_side = 1
+1:0/0/terrains_peering_bit/top_right_corner = 1
+2:0/0 = 0
+2:0/0/terrain_set = 1
+2:0/0/terrain = 2
+2:0/0/terrains_peering_bit/right_side = 2
+2:0/0/terrains_peering_bit/bottom_right_corner = 2
+2:0/0/terrains_peering_bit/bottom_side = 2
+2:0/0/terrains_peering_bit/bottom_left_corner = 2
+2:0/0/terrains_peering_bit/left_side = 2
+2:0/0/terrains_peering_bit/top_left_corner = 2
+2:0/0/terrains_peering_bit/top_side = 2
+2:0/0/terrains_peering_bit/top_right_corner = 2
+3:0/0 = 0
+3:0/0/terrain_set = 1
+3:0/0/terrain = 3
+3:0/0/terrains_peering_bit/right_side = 3
+3:0/0/terrains_peering_bit/bottom_right_corner = 3
+3:0/0/terrains_peering_bit/bottom_side = 3
+3:0/0/terrains_peering_bit/bottom_left_corner = 3
+3:0/0/terrains_peering_bit/left_side = 3
+3:0/0/terrains_peering_bit/top_left_corner = 3
+3:0/0/terrains_peering_bit/top_side = 3
+3:0/0/terrains_peering_bit/top_right_corner = 3
+4:0/0 = 0
+4:0/0/terrain_set = 1
+4:0/0/terrain = 4
+4:0/0/terrains_peering_bit/right_side = 4
+4:0/0/terrains_peering_bit/bottom_right_corner = 4
+4:0/0/terrains_peering_bit/bottom_side = 4
+4:0/0/terrains_peering_bit/bottom_left_corner = 4
+4:0/0/terrains_peering_bit/left_side = 4
+4:0/0/terrains_peering_bit/top_left_corner = 4
+4:0/0/terrains_peering_bit/top_side = 4
+4:0/0/terrains_peering_bit/top_right_corner = 4
+
 [sub_resource type="TileSet" id="TileSet_pej3d"]
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "water"
 terrain_set_0/terrain_0/color = Color(0.498039, 0.215686, 0.709804, 1)
 terrain_set_0/terrain_1/name = "grass"
 terrain_set_0/terrain_1/color = Color(0.235294, 0.384314, 0.901961, 1)
+terrain_set_1/mode = 0
+terrain_set_1/terrain_0/name = "green grass"
+terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_1/terrain_1/name = "orange grass"
+terrain_set_1/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_1/terrain_2/name = "purple grass"
+terrain_set_1/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
+terrain_set_1/terrain_3/name = "red grass"
+terrain_set_1/terrain_3/color = Color(0.375, 0.5, 0.25, 1)
+terrain_set_1/terrain_4/name = "white grass"
+terrain_set_1/terrain_4/color = Color(0.28125, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8pvi0")
-sources/1 = SubResource("TileSetAtlasSource_0tx72")
 sources/2 = SubResource("TileSetAtlasSource_5cud3")
 sources/7 = SubResource("TileSetScenesCollectionSource_e7krx")
 sources/3 = SubResource("TileSetAtlasSource_u1klx")
 sources/4 = SubResource("TileSetAtlasSource_tq2y0")
 sources/5 = SubResource("TileSetAtlasSource_1cm7n")
 sources/6 = SubResource("TileSetAtlasSource_dkb2t")
+sources/8 = SubResource("TileSetAtlasSource_sbh20")
 
 [node name="World" type="TileMap"]
 y_sort_enabled = true
