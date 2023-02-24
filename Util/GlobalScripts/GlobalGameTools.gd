@@ -1,7 +1,7 @@
 extends Node
 
-var damageNumber = preload('res://UI/DamageNumbers/DamageNumber.tscn')
-var experience = preload('res://Game/Experience.tscn')
+var damageNumber = preload('res://Game/UI/DamageNumbers/DamageNumber.tscn')
+var experience = preload('res://Game/Experience/Experience.tscn')
 	
 func toggleVisibility(item: CanvasItem):
 	if item.visible:

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bexwjyhn0xajs"]
+
+[ext_resource type="Script" path="res://World/Flora/ScannablePlants/ScannablePlant.gd" id="1_gtesy"]
+[ext_resource type="Texture2D" uid="uid://dd4dq4el6m4w5" path="res://World/Flora/ScannablePlants/Plant2/alien-plant-2.png" id="2_ldowy"]
+[ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://Game/UI/Font/8bitOperatorPlus8-Regular.ttf" id="3_l1bot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmppr"]
+radius = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_57pcl"]
+font = ExtResource("3_l1bot")
+font_size = 6
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Plant2" type="Area2D"]
+script = ExtResource("1_gtesy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lmppr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ldowy")
+
+[node name="ScanText" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = -13.0
+offset_right = 12.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Scan (E)"
+label_settings = SubResource("LabelSettings_57pcl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="FontFile" uid="uid://bumukosekroos" path="res://Game/UI/Font/8bitOperatorPlus8-Regular.ttf" id="1_n217n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkqpu"]
+font = ExtResource("1_n217n")
+font_size = 6
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageNumber" type="Label"]
+label_settings = SubResource("LabelSettings_pkqpu")
+horizontal_alignment = 1
+vertical_alignment = 1

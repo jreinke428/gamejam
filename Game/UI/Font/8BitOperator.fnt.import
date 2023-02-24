@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://bat40h7im4h0d"
+path="res://.godot/imported/8BitOperator.fnt-95fdeda774e6826d856a23d1281bb38b.fontdata"
+
+[deps]
+
+source_file="res://Game/UI/Font/8BitOperator.fnt"
+dest_files=["res://.godot/imported/8BitOperator.fnt-95fdeda774e6826d856a23d1281bb38b.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Game/Experience/Experience.gd" id="1_qa45v"]
+[ext_resource type="Texture2D" uid="uid://cnw7lfbmfq4sg" path="res://Game/Experience/experience.png" id="2_r11fc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5phmr"]
+radius = 2.0
+
+[node name="Experience" type="Area2D" groups=["Experience"]]
+script = ExtResource("1_qa45v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r11fc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5phmr")

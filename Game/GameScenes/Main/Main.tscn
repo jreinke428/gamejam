@@ -1,0 +1,80 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="PackedScene" path="res://World/WorldGen/World.tscn" id="1_2ir4f"]
+[ext_resource type="Script" path="res://Game/GameScenes/Main/Main.gd" id="1_r6l7n"]
+[ext_resource type="PackedScene" path="res://World/Player/Player.tscn" id="2_5wnah"]
+[ext_resource type="PackedScene" path="res://Game/Camera/Camera.tscn" id="4_hcspp"]
+[ext_resource type="PackedScene" path="res://Game/GameScenes/Pause/Pause.tscn" id="5_6u5lj"]
+[ext_resource type="PackedScene" path="res://Game/UI/PlayerUI/UI.tscn" id="5_k4w1c"]
+[ext_resource type="PackedScene" path="res://Game/GameScenes/Failed/Failed.tscn" id="7_d5q75"]
+[ext_resource type="PackedScene" path="res://Game/GameScenes/Success/Success.tscn" id="8_adwe6"]
+[ext_resource type="PackedScene" path="res://Game/GameScenes/LevelUp/LevelUp.tscn" id="9_ab4m7"]
+[ext_resource type="AudioStream" uid="uid://bg0u45xh42rgp" path="res://Game/UI/sethtune.wav" id="10_wdekh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hj4c0"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o2rap"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_glxsu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vjtq7"]
+normal = Vector2(-1, 0)
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_r6l7n")
+
+[node name="WorldBorders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders"]
+shape = SubResource("WorldBoundaryShape2D_hj4c0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders"]
+shape = SubResource("WorldBoundaryShape2D_o2rap")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1536, 864)
+shape = SubResource("WorldBoundaryShape2D_glxsu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders"]
+position = Vector2(1536, 864)
+shape = SubResource("WorldBoundaryShape2D_vjtq7")
+
+[node name="World" parent="." instance=ExtResource("1_2ir4f")]
+
+[node name="Player" parent="World" instance=ExtResource("2_5wnah")]
+position = Vector2(818, 487)
+motion_mode = 1
+
+[node name="Camera2D" parent="World/Player" instance=ExtResource("4_hcspp")]
+position = Vector2(0, 0)
+
+[node name="ScanTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_k4w1c")]
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("5_6u5lj")]
+process_mode = 3
+visible = false
+
+[node name="Failed" parent="CanvasLayer" instance=ExtResource("7_d5q75")]
+visible = false
+
+[node name="Success" parent="CanvasLayer" instance=ExtResource("8_adwe6")]
+visible = false
+
+[node name="LevelUp" parent="CanvasLayer" instance=ExtResource("9_ab4m7")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wdekh")
+volume_db = -8.0
+
+[connection signal="timeout" from="ScanTimer" to="." method="_on_scan_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
