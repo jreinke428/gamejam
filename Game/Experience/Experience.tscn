@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://dl7v5homhnk7h"]
 
 [ext_resource type="Script" path="res://Game/Experience/Experience.gd" id="1_qa45v"]
 [ext_resource type="Texture2D" uid="uid://cnw7lfbmfq4sg" path="res://Game/Experience/experience.png" id="2_r11fc"]
@@ -10,6 +10,7 @@ radius = 2.0
 script = ExtResource("1_qa45v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
 texture = ExtResource("2_r11fc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
