@@ -14,7 +14,7 @@ func _on_resume_pressed():
 
 func _on_evacuate_pressed():
 	togglePause()
-	get_tree().change_scene_to_file("res://Game/PlanetSelection.tscn")
+	get_tree().change_scene_to_file("res://Game/GameScenes/PlanetSelection/PlanetSelection.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit()
