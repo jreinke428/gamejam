@@ -17,3 +17,5 @@ signal level_complete
 signal level_up
 
 signal experience_collected(experience, max)
+
+signal scan_timer(timeRemaining)

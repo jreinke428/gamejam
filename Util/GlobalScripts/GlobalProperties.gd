@@ -2,6 +2,12 @@ extends Node
 
 var SCREEN_SIZE:= Vector2i(96, 54)
 
+var currentState = {
+	'planet' : null,
+	'plant' : null,
+	'enemy' : null
+}
+
 var PLANETS := [
 	{
 		'texture' : preload("res://Game/GameScenes/Start/start-planet-1.png"),
@@ -55,15 +61,24 @@ var ENEMIES = [
 	},
 ]
 
-var currentState = {
-	'planet' : null,
-	'plant' : null,
-	'enemy' : null
-}
+var SCAN_EVENTS = [
+	{
+		"length": 10,
+		"enemies": 10
+	},
+	{
+		"length": 40,
+		"enemies": 32
+	},
+	{
+		"length": 60,
+		"enemies": 46
+	}
+]
 
 var playerStats = {
-	'damage' : 2,
-	'fireRate' : 0.5,
+	'damage' : 1,
+	'fireRate' : 1,
 	'pierce' : 1
 }
 	

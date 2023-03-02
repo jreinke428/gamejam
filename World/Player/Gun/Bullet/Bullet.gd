@@ -9,9 +9,9 @@ func _physics_process(delta):
 	var movement = Vector2.RIGHT.rotated(rotation) * speed * delta
 	global_position += movement
 	
-func initializeBullet(speed: int, damage: int):
-	self.speed = speed
-	self.damage = damage
+func initializeBullet(sspeed: int, ddamage: int):
+	self.speed = sspeed
+	self.damage = ddamage
 	
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

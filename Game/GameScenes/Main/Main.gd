@@ -15,25 +15,13 @@ var spawnTimerBuffer: float = 1.5
 var totalSpawnTime: float
 var secondsPerEnemy: float
 
-var scanEventParams = [
-	{
-		"length": 20,
-		"enemies": 5
-	},
-	{
-		"length": 40,
-		"enemies": 32
-	},
-	{
-		"length": 60,
-		"enemies": 46
-	}
-]
-
 func _ready():
 	Signals.start_scan_attempted.connect(startScan)
 	Signals.scanner_destroyed.connect(scannerDestroyed)
 	Signals.scan_over.connect(scanCompleted)
+	
+func _process(_delta):
+	Signals.scan_timer.emit(snapped(scanTimer.time_left, 0.01))
 			
 func startScan(scannerPosition: Vector2):
 	if scanInProgress:
@@ -47,10 +35,11 @@ func startScan(scannerPosition: Vector2):
 	FlowField.setTarget(scannerGlobalPosition)
 	Signals.scan_started.emit()
 	
-	scanTimer.start(scanEventParams[scanCount].length)
+	scanTimer.start(GlobalProperties.SCAN_EVENTS[scanCount].length)
 	await get_tree().create_timer(spawnTimerBuffer).timeout 
-	totalSpawnTime = scanEventParams[scanCount].length - 2 * spawnTimerBuffer
-	secondsPerEnemy = float(totalSpawnTime) / (float(scanEventParams[scanCount].enemies)-1)
+	totalSpawnTime = GlobalProperties.SCAN_EVENTS[scanCount].length - 2 * spawnTimerBuffer
+	secondsPerEnemy = float(totalSpawnTime) / (float(GlobalProperties.SCAN_EVENTS[scanCount].enemies)-1)
+	totalSpawnTime -= secondsPerEnemy
 	spawnEnemies(scannerGlobalPosition, 1)
 	spawnTimer.start(secondsPerEnemy)
 
@@ -92,6 +81,6 @@ func _on_scan_timer_timeout():
 func _on_spawn_timer_timeout():
 	totalSpawnTime -= secondsPerEnemy
 	spawnEnemies(scannerGlobalPosition, 1)
-	
+
 	if totalSpawnTime <= 0:
 		spawnTimer.stop()

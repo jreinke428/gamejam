@@ -8,6 +8,7 @@ var experienceBarWidth = 44.0
 @onready var plantText = $PlantContainer/PlantText
 @onready var experienceBar = $Experience/ExperienceBar
 @onready var player = $/root/Test/World/Player
+@onready var scanTimer = $ScanTimer
 var scansCompleted = -1
 
 func _ready():
@@ -23,6 +24,7 @@ func connectSignals():
 	Signals.player_health_changed.connect(changeHealth)
 	Signals.scan_over.connect(scanCompleted)
 	Signals.experience_collected.connect(experienceCollected)
+	Signals.scan_timer.connect(scanTimeDown)
 	
 func changeHealth(newHealth, maxHealth):
 	healthText.text = '{0}/{1}'.format([newHealth, maxHealth])
@@ -32,5 +34,8 @@ func scanCompleted():
 	scansCompleted += 1
 	plantText.text = '{0}/3'.format([scansCompleted])
 	
-func experienceCollected(experience, max):
-	experienceBar.create_tween().tween_property(experienceBar, 'size:x', clampf(experienceBarWidth*experience/max,0.0,experienceBarWidth), 0.1)	
+func experienceCollected(experience, maxx):
+	experienceBar.create_tween().tween_property(experienceBar, 'size:x', clampf(experienceBarWidth*experience/maxx,0.0,experienceBarWidth), 0.1)
+	
+func scanTimeDown(timeRemaining: float):
+	scanTimer.text = '{0}'.format([timeRemaining])

@@ -11,7 +11,7 @@ func _ready():
 	Signals.scan_started.connect(_on_scan_started)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if canStartScan and playerNearby: 
 		if Input.is_action_just_pressed("start_scan"):
 			monitoring = false

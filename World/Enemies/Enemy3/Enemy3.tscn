@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene load_steps=25 format=3 uid="uid://c2hcyqux3qkjs"]
 
 [ext_resource type="Script" path="res://World/Enemies/Enemy1/Enemy1.gd" id="1_7y06k"]
 [ext_resource type="Texture2D" uid="uid://be135fx6jt6yi" path="res://World/Enemies/Enemy3/enemy3-attack.png" id="2_1w0f1"]
@@ -151,7 +151,7 @@ radius = 15.0
 motion_mode = 1
 script = ExtResource("1_7y06k")
 speed = 18
-health = 13
+health = 1
 damage = 1
 
 [node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]

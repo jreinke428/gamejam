@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene load_steps=25 format=3 uid="uid://wu3ljs8rtua7"]
 
 [ext_resource type="Script" path="res://World/Enemies/Enemy1/Enemy1.gd" id="1_wuw4b"]
 [ext_resource type="Texture2D" uid="uid://c6fva0a8x0svy" path="res://World/Enemies/Enemy2/enemy2-attack.png" id="2_io5hh"]
@@ -150,7 +150,7 @@ radius = 15.0
 [node name="Enemy2" type="CharacterBody2D" groups=["Enemy"]]
 motion_mode = 1
 script = ExtResource("1_wuw4b")
-health = 8
+health = 1
 
 [node name="WaterTrailingParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 3)

@@ -31,9 +31,9 @@ func dropExperience(pos: Vector2, amount: int, parent: Node2D):
 		spawnCoords.x = pos.x + poi * cos(deg_to_rad(ang))
 		spawnCoords.y = pos.y + poi * sin(deg_to_rad(ang))
 		
-		var exp = experience.instantiate()
-		parent.call_deferred('add_child', exp)
-		exp.global_position = pos
+		var expe = experience.instantiate()
+		parent.call_deferred('add_child', expe)
+		expe.global_position = pos
 		
 		var DOT = Vector2(1,0).dot((spawnCoords - pos).normalized())
 		var angle = 90 - 45 * DOT
@@ -54,7 +54,7 @@ func dropExperience(pos: Vector2, amount: int, parent: Node2D):
 			var dy = -1.0 * (time * y_component + 0.5 * -9.8 * time * time)
 			curve.append(pos + Vector2(dx, dy))
 
-		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).bind_node(exp)
-		exp.tween = tween
+		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).bind_node(expe)
+		expe.tween = tween
 		for p in curve:
-			tween.tween_property(exp, 'position', p, 0.01)
+			tween.tween_property(expe, 'position', p, 0.01)

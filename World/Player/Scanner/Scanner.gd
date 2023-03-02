@@ -13,7 +13,7 @@ var healthBarWidth := 12
 func _ready():
 	Signals.scan_over.connect(scanOver)
 
-func _process(delta):
+func _process(_delta):
 	tryPlayingScanAnimation()
 	
 func hit(damage):

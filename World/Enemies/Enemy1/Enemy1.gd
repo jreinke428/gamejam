@@ -32,10 +32,10 @@ func navigate():
 	if world.isInWater(global_position): velocity /= 2
 	move_and_slide()
 
-func hit(damage):
-	health -= damage
+func hit(ddamage):
+	health -= ddamage
 	modulate = '#ff9e9e'
-	GlobalGameTools.createDamageNumber(global_position-Vector2(0,5), damage)
+	GlobalGameTools.createDamageNumber(global_position-Vector2(0,5), ddamage)
 	hitTimer.start()
 	if health <= 0: 
 		GlobalGameTools.dropExperience(global_position, 10, world)
