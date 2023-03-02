@@ -60,7 +60,7 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.533333)
+color = Color(0, 0, 0, 0.54902)
 
 [node name="PlantTexture" type="TextureRect" parent="PlantContainer/PlantBox"]
 layout_mode = 1
@@ -89,6 +89,15 @@ offset_right = 68.0
 offset_bottom = 20.0
 texture = ExtResource("2_j6qqa")
 stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HealthBar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 0.54902)
 
 [node name="Health" type="ColorRect" parent="HealthBar"]
 show_behind_parent = true
@@ -124,6 +133,15 @@ offset_right = 70.0
 offset_bottom = 29.0
 texture = ExtResource("5_ku2sj")
 stretch_mode = 2
+
+[node name="Background" type="ColorRect" parent="Experience"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 9.0
+color = Color(0, 0, 0, 0.54902)
 
 [node name="ExperienceBar" type="ColorRect" parent="Experience"]
 layout_mode = 1

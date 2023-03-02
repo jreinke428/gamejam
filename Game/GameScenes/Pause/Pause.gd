@@ -1,7 +1,7 @@
 extends Control
 
 func _process(_delta):
-	if Input.is_action_just_released('esc'):
+	if Input.is_action_just_released('esc') and !get_tree().paused:
 		togglePause()
 
 func togglePause():
